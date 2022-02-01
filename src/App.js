@@ -1,4 +1,7 @@
-function App() {
+import Todo from "./components/Todo";
+
+function App(props) {
+  const taskList = props.tasks.map(task=> <Todo name={task.name} completed={task.completed} id={task.id} key={task.id}/>)
   return (
     <div>
       
@@ -21,40 +24,7 @@ function App() {
       <h2>3 Tasks</h2>
       
       <ul>
-
-        <li>
-          <div>
-            <input type="checkbox" id="task-0" defaultChecked={true}/>
-            <label htmlFor="task-0">Breathe</label>
-          </div>
-          <div>
-            <button>Edit</button>
-            <button>Delete</button>
-          </div>
-        </li>
-
-        <li>
-          <div>
-            <input type="checkbox" id="task-1" />
-            <label htmlFor="task-1">Eat</label>
-          </div>
-          <div>
-            <button>Edit</button>
-            <button>Delete</button>
-          </div>
-        </li>
-
-        <li>
-          <div>
-            <input type="checkbox" id="task-2" />
-            <label htmlFor="task-2">Sleep</label>
-          </div>
-          <div>
-            <button>Edit</button>
-            <button>Delete</button>
-          </div>
-        </li>
-        
+        {taskList}
       </ul>
     
     </div>
