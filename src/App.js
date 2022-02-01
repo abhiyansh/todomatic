@@ -1,16 +1,24 @@
 import Todo from "./components/Todo";
+import Form from "./components/Form"
 
 function App(props) {
-  const taskList = props.tasks.map(task=> <Todo name={task.name} completed={task.completed} id={task.id} key={task.id}/>)
+  
+  const taskList = props.tasks.map(task => ( 
+    <Todo 
+        name={task.name}
+        completed={task.completed}
+        id={task.id}
+        key={task.id}
+      />
+    )
+  );
+  
   return (
     <div>
       
       <h1>TodoMatic</h1>
       
-      <form>
-        <input type="text" id="new-task" name="new-task" />
-        <button type="submit">Add</button>
-      </form>
+      <Form />
       
       <div>
         <label htmlFor="sort-by">Filter: </label>
