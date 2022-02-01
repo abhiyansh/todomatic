@@ -1,5 +1,6 @@
 import Todo from "./components/Todo";
 import Form from "./components/Form"
+import FilterButton from "./components/FilterButton";
 
 function App(props) {
   
@@ -21,12 +22,9 @@ function App(props) {
       <Form />
       
       <div>
-        <label htmlFor="sort-by">Filter: </label>
-        <select name="sort-by" id="sort-by">
-          <option value="all">Show All</option>
-          <option value="left">Tasks Left</option>
-          <option value="done">Tasks Completed</option>
-        </select>
+        <FilterButton />
+        <FilterButton />
+        <FilterButton />
       </div>
 
       <h2>3 Tasks</h2>
