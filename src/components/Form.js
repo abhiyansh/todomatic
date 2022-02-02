@@ -1,7 +1,23 @@
-export default function Form(){
+import { useState } from "react";
+
+export default function Form(props){
+
+    const [name, setName] = useState('');
+
+    function handleChange(e){
+        setName(e.target.value);
+    }
+    
+    function handleSubmit(e){
+        e.preventDefault();
+        if(!name) return;
+        props.addTask(name);
+        setName('');
+    }
+
     return (
-        <form>
-            <input type="text" id="new-task" name="new-task" />
+        <form onSubmit={handleSubmit}>
+            <input type="text" id="new-task" name="new-task" value={name} onChange={handleChange}/>
             <button type="submit">Add</button>
         </form>
     );

@@ -1,10 +1,18 @@
+import { useState } from "react";
 import Todo from "./components/Todo";
 import Form from "./components/Form"
 import FilterButton from "./components/FilterButton";
 
 function App(props) {
+
+  const [tasks, setTasks] = useState(props.tasks);
+
+  function addTask(name){
+    const newTask = { id: "id", name: name, completed: false};
+    setTasks([...tasks, newTask]);
+  }
   
-  const taskList = props.tasks.map(task => ( 
+  const taskList = tasks.map(task => ( 
     <Todo 
         name={task.name}
         completed={task.completed}
@@ -19,7 +27,7 @@ function App(props) {
       
       <h1>TodoMatic</h1>
       
-      <Form />
+      <Form addTask={addTask}/>
       
       <div>
         <FilterButton />
