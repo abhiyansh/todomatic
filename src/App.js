@@ -64,20 +64,24 @@ function App(props) {
   ));
 
   const taskNoun = taskList.length !== 1 ? 'tasks': 'task';
-  const headingText = `${taskList.length} ${taskNoun}`;
+  const headingText = `Total: ${taskList.length} ${taskNoun}`;
   
   return (
-    <div>
+    <div className="main-wrapper">
       
-      <h1>TodoMatic</h1>
+      <div className="header">
+        <h1>TodoMatic</h1>
+      </div>
       
       <Form addTask={addTask}/>
       
-      <div>
+      <div className="filter-list">
         {filterList}
       </div>
 
-      <h2>{headingText}</h2>
+      <div className="task-counter">
+        <h2>{headingText}</h2>
+      </div>
       
       <ul>
         {taskList}

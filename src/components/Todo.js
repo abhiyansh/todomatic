@@ -17,9 +17,14 @@ export default function Todo(props){
   }
   
   const editingTemplate = (
-    <form>
-      <div>
-        <label htmlFor={props.id}>New name for {props.name}</label>
+    <form className="task-edit-container">
+      <div className="task-edit-label">
+        <input
+          type="checkbox"
+          id={props.id}
+          defaultChecked={props.completed}
+          onChange={() => props.toggleTaskCompleted(props.id)}
+        />
         <input
           id={props.id}
           type="text"
@@ -27,7 +32,7 @@ export default function Todo(props){
           onChange={handleChange}
         />
       </div>
-      <div>
+      <div className="task-edit-options">
         <button type="button" onClick={() => setEditing(false)}>Cancel</button>
         <button type="submit" onClick={handleSubmit}>Save</button>
       </div>
@@ -35,20 +40,20 @@ export default function Todo(props){
   );
 
   const viewTemplate = (
-    <div>
-      <div>
-          <input
-            type="checkbox"
-            id={props.id}
-            defaultChecked={props.completed}
-            onChange={() => props.toggleTaskCompleted(props.id)}
-          />
-          <label htmlFor={props.id}>{props.name}</label>
-        </div>
-        <div>
-          <button onClick={() => setEditing(true)}>Edit</button>
-          <button onClick={() => props.deleteTask(props.id)}>Delete</button>
-        </div>
+    <div className="task-view-container">
+      <div className="task-view-label">
+        <input
+          type="checkbox"
+          id={props.id}
+          defaultChecked={props.completed}
+          onChange={() => props.toggleTaskCompleted(props.id)}
+        />
+        <label htmlFor={props.id}>{props.name}</label>
+      </div>
+      <div className="task-view-options">
+        <button onClick={() => setEditing(true)}>Edit</button>
+        <button onClick={() => props.deleteTask(props.id)}>Delete</button>
+      </div>
     </div>
   );
   

@@ -16,9 +16,9 @@ export default function Form(props){
     }
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="add-task">
             <input type="text" id="new-task" name="new-task" value={name} onChange={handleChange}/>
-            <button type="submit">Add</button>
+            <button type="submit">Add Task</button>
         </form>
     );
 }
