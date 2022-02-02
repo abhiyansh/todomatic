@@ -1,7 +1,11 @@
 export default function FilterButton(props){
     return (
-        <button type="button" aria-pressed="true">
-            Show All tasks
+        <button
+            type="button"
+            aria-pressed={props.isPressed}
+            onClick={() => props.setFilter(props.name)}
+        >
+            Show {props.name} tasks
         </button>
     );
 }
