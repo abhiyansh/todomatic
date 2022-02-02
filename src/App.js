@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { nanoid } from "nanoid";
 import Todo from "./components/Todo";
 import Form from "./components/Form"
 import FilterButton from "./components/FilterButton";
@@ -8,7 +9,7 @@ function App(props) {
   const [tasks, setTasks] = useState(props.tasks);
 
   function addTask(name){
-    const newTask = { id: "id", name: name, completed: false};
+    const newTask = { id: "task-"+nanoid(), name: name, completed: false};
     setTasks([...tasks, newTask]);
   }
   
@@ -21,6 +22,9 @@ function App(props) {
       />
     )
   );
+
+  const taskNoun = taskList.length !== 1 ? 'tasks': 'task';
+  const headingText = `${tasks.length} ${taskNoun}`;
   
   return (
     <div>
@@ -35,7 +39,7 @@ function App(props) {
         <FilterButton />
       </div>
 
-      <h2>3 Tasks</h2>
+      <h2>{headingText}</h2>
       
       <ul>
         {taskList}
