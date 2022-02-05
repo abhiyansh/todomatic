@@ -15,16 +15,20 @@ export default function Todo(props){
     setNewName("");
     setEditing(false);
   }
+
+  const checkBox = (
+    <input
+      type="checkbox"
+      id={props.id}
+      defaultChecked={props.completed}
+      onChange={() => props.toggleTaskCompleted(props.id)}
+    />
+  );
   
   const editingTemplate = (
     <form className="task-edit-container">
       <div className="task-edit-label">
-        <input
-          type="checkbox"
-          id={props.id}
-          defaultChecked={props.completed}
-          onChange={() => props.toggleTaskCompleted(props.id)}
-        />
+        {checkBox}
         <input
           id={props.id}
           type="text"
@@ -42,12 +46,7 @@ export default function Todo(props){
   const viewTemplate = (
     <div className="task-view-container">
       <div className="task-view-label">
-        <input
-          type="checkbox"
-          id={props.id}
-          defaultChecked={props.completed}
-          onChange={() => props.toggleTaskCompleted(props.id)}
-        />
+        {checkBox}
         <label htmlFor={props.id}>{props.name}</label>
       </div>
       <div className="task-view-options">
