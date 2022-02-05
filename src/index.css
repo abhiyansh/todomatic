@@ -3,6 +3,16 @@
   /* outline: red solid 2px; */
 }
 
+.visually-hidden {
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap;
+}
+
 body{
   height: 100vh;
   margin: 0;
@@ -46,7 +56,7 @@ button[aria-pressed=true]{
 
 .filter-list{
   display: flex;
-  gap: 10px;
+  gap: 15px;
 }
 
 .task-counter h2{

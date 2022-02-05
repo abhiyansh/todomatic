@@ -37,8 +37,12 @@ export default function Todo(props){
         />
       </div>
       <div className="task-edit-options">
-        <button type="button" onClick={() => setEditing(false)}>Cancel</button>
-        <button type="submit" onClick={handleSubmit}>Save</button>
+        <button type="button" onClick={() => setEditing(false)}>
+          Cancel <span className="visually-hidden">Edits</span>
+        </button>
+        <button type="submit" onClick={handleSubmit}>
+          Save <span className="visually-hidden">Changes</span>
+        </button>
       </div>
     </form>
   );
@@ -50,8 +54,12 @@ export default function Todo(props){
         <label htmlFor={props.id}>{props.name}</label>
       </div>
       <div className="task-view-options">
-        <button onClick={() => setEditing(true)}>Edit</button>
-        <button onClick={() => props.deleteTask(props.id)}>Delete</button>
+        <button onClick={() => setEditing(true)}>
+          Edit <span className="visually-hidden">{props.name}</span>
+        </button>
+        <button onClick={() => props.deleteTask(props.id)}>
+          Delete <span className="visually-hidden">{props.name}</span>
+        </button>
       </div>
     </div>
   );

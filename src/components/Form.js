@@ -17,7 +17,14 @@ export default function Form(props){
 
     return (
         <form onSubmit={handleSubmit} className="add-task">
-            <input type="text" id="new-task" name="new-task" value={name} onChange={handleChange}/>
+            <input
+                type="text"
+                autoComplete="off"
+                id="new-task"
+                name="new-task"
+                value={name}
+                onChange={handleChange}
+            />
             <button type="submit">Add Task</button>
         </form>
     );

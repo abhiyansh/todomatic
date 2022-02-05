@@ -80,10 +80,10 @@ function App(props) {
       </div>
 
       <div className="task-counter">
-        <h2>{headingText}</h2>
+        <h2 id="list-heading">{headingText}</h2>
       </div>
       
-      <ul>
+      <ul role="list" aria-labelledby="list-heading">
         {taskList}
       </ul>
     
